@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   StateType,
   useGestureResponder,
-  ResponderEvent
+  ResponderEvent,
 } from "react-gesture-responder";
 import { animated, interpolate, useSpring } from "react-spring";
 import { GridItemContext } from "./GridItemContext";
@@ -36,7 +36,7 @@ export function GridItem({
     onMove,
     onEnd,
     grid,
-    dragging: isDragging
+    dragging: isDragging,
   } = context;
 
   const { columnWidth, rowHeight } = grid;
@@ -57,7 +57,7 @@ export function GridItem({
         immediate: true,
         zIndex: "1",
         scale: 1.1,
-        opacity: 0.8
+        opacity: 0.8,
       };
     }
 
@@ -66,7 +66,7 @@ export function GridItem({
       immediate: true,
       zIndex: "0",
       scale: 1,
-      opacity: 1
+      opacity: 1,
     };
   });
 
@@ -79,7 +79,7 @@ export function GridItem({
       zIndex: "1",
       immediate: true,
       opacity: 0.8,
-      scale: 1.1
+      scale: 1.1,
     });
 
     onMove(state, x, y);
@@ -95,7 +95,7 @@ export function GridItem({
 
   const { bind } = useGestureResponder(
     {
-      onMoveShouldSet: state => {
+      onMoveShouldSet: (state) => {
         if (disableDrag) {
           return false;
         }
@@ -115,10 +115,10 @@ export function GridItem({
         return true;
       },
       onTerminate: handleEnd,
-      onRelease: handleEnd
+      onRelease: handleEnd,
     },
     {
-      enableMouse: true
+      enableMouse: true,
     }
   );
 
@@ -134,12 +134,12 @@ export function GridItem({
         zIndex: "0",
         opacity: 1,
         scale: 1,
-        immediate: false
+        immediate: false,
       });
     }
   }, [dragging.current, left, top]);
 
-  const props = {
+  const props: any = {
     className:
       "GridItem" +
       (isDragging ? " dragging" : "") +
@@ -161,9 +161,9 @@ export function GridItem({
         (xy: any, s: any) =>
           `translate3d(${xy[0]}px, ${xy[1]}px, 0) scale(${s})`
       ),
-      ...style
+      ...style,
     },
-    ...other
+    ...other,
   };
 
   return typeof children === "function" ? (
@@ -171,7 +171,7 @@ export function GridItem({
       dragging: isDragging,
       disabled: !!disableDrag,
       i,
-      grid
+      grid,
     })
   ) : (
     <animated.div {...props}>{children}</animated.div>

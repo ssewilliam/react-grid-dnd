@@ -9,7 +9,7 @@
     "jsx": "react",
     "lib": ["es2015", "esnext.asynciterable", "dom"],
     "module": "esnext",
-    "target": "es5",
+    "target": "es2020",
     "outDir": "esm",
     "skipLibCheck": true,
     "downlevelIteration": true,
@@ -18,7 +18,8 @@
     "isolatedModules": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": false
+    "allowJs": false,
+    "types": ["jest", "react", "react-dom"]
   },
   "includes": ["src"],
   "exclude": [

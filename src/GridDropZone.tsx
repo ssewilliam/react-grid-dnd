@@ -93,7 +93,7 @@ export function GridDropZone({
 
   // keep an initial list of our item indexes. We use this
   // when animating swap positions on drag events
-  const itemsIndexes = React.Children.map(children, (_, i) => i);
+  const itemsIndexes = React.Children.map(children, (_, i) => i)||[];
 
   return (
     <div
